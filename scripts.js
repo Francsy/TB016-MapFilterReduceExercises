@@ -12,15 +12,12 @@ const foodList = ['Pizza', 'Ramen', 'Paella', 'Entrecot'];
 foodList.map((a, i)=> {
    let paises = ['Italia', 'Japón', 'Valencia']
    
-
     if (i <= 2){
         return 'Como soy de ' + paises[i] + ', amo comer ' + a
     } else {
         return 'Aunque no como carne, el ' + a + ' es sabroso'
     }
 })
-
-
 
 //Resultado esperado
 /* [
@@ -57,7 +54,8 @@ const staff = [
     }
   ];
 
-  staff.map ((person) => `${person.name} es ${person.role} y le gusta ${person.hobbies[0]} y ${person.hobbies[1]}`)
+  staff.map (person => `${person.name} es ${person.role} y le gusta ${person.hobbies[0]} y ${person.hobbies[1]}`)
+
 
   // Resultado esperado
 /*
@@ -112,7 +110,7 @@ const inventory = [
   {
     name: 'Mobile phone',
     price: 199
-  },
+  }, 
   {
     name: 'TV Samsung',
     price: 459
@@ -127,8 +125,9 @@ const inventory = [
   }
 ];
 
-inventory.filter(item => { if (item.price > 300) {return item.name}})
-
+inventory
+.filter(item => item.price > 300)
+.map(item => item.name)
 
 /*
   [
@@ -207,6 +206,6 @@ const books = [
 ];
 
 books.filter(book => { if(book.category === 'code') {return book.price}})
-.reduce((acc, value) => {return acc.price + value.price})
+.reduce((acc, value) => acc + value.price, 0)
 
 // Resultado --> 60
