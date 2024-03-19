@@ -1,83 +1,80 @@
-// 1. Ejercicios Map
-// Dado el siguiente array, crear otro que sea el resultado de elevar cada número a si mismo
+// 1. Map exercises
+// 1.1 Given the following array, create another one that is the result of raising each number to itself:
 
-const numbers = [ 4, 5, 6, 7, 8, 9, 10];
+const numbers = [4, 5, 6, 7, 8, 9, 10];
 
-numbers.map((a) => a ** a)
+numbers.map((a) => a ** a);
 
-// Dado el siguiente array, generar un segundo array que consiga generar de salida el resultado esperado
+// Result --> [256, 3125, 46656, 823543, 16777216, 387420489, 10000000000]
+
+// 1.2 Given the following array, generate a second array that achieves the expected output
 
 const foodList = ['Pizza', 'Ramen', 'Paella', 'Entrecot'];
 
-foodList.map((a, i)=> {
-   let paises = ['Italia', 'Japón', 'Valencia']
-   
-    if (i <= 2){
-        return 'Como soy de ' + paises[i] + ', amo comer ' + a
-    } else {
-        return 'Aunque no como carne, el ' + a + ' es sabroso'
-    }
-})
+foodList.map((food, i) => {
+  let countries = ['Italy', 'Japan', 'Valencia'];
+  if (i <= 2) {
+    return 'As I am from ' + countries[i] + ', I love eating ' + food;
+  } else {
+    return 'Although I do not eat meat, ' + food + ' is tasty';
+  }
+});
 
-//Resultado esperado
-/* [
-    'Como soy de Italia, amo comer Pizza',
-    'Como soy de Japón, amo comer Ramen',
-    'Como soy de Valencia, amo comer Paella',
-    'Aunque no como carne, el Entrecot es sabroso'
-   ]
-*/
-
-// Dado el siguiente array, crear un segundo array que forme frases como en el ejemplo accediendo a las propiedades del objeto proporcionado:
-
-
-const staff = [
-    {
-      name: 'Pepe',
-      role: 'The Boss',
-      hobbies: ['leer', 'ver pelis']
-    },
-    {
-      name: 'Ana',
-      role: 'becaria',
-      hobbies: ['nadar', 'bailar']
-    },
-    {
-      name: 'Luis',
-      role: 'programador',
-      hobbies: ['dormir', 'comprar']
-    },
-    {
-      name: 'Carlos',
-      role: 'secretario',
-      hobbies: ['futbol', 'queso']
-    }
-  ];
-
-  staff.map (person => `${person.name} es ${person.role} y le gusta ${person.hobbies[0]} y ${person.hobbies[1]}`)
-
-
-  // Resultado esperado
-/*
+/* Result -->
   [
-    'Pepe es TheBoss y le gusta leer y ver pelis',
-    'Ana es becaria y le gusta nadar y bailar',
-    'Luis es programador y le gusta dormir y comprar',
-    'Ana es becaria y le gusta nadar y bailar',
-    'Carlos es secretario y le gusta futbol y queso'
+    'As I am from Italy, I love eating Pizza',
+    'As I am from Japan, I love eating Ramen',
+    'As I am from Valencia, I love eating Paella',
+    'Although I do not eat meat, Entrecot is tasty'
   ]
 */
 
+// 1.3 Given the following array, create a second array that forms sentences as in the example accessing the properties of the provided object:
 
+const staff = [
+  {
+    name: 'Pepe',
+    role: 'The Boss',
+    hobbies: ['reading', 'watching movies']
+  },
+  {
+    name: 'Ana',
+    role: 'an intern',
+    hobbies: ['swimming', 'dancing']
+  },
+  {
+    name: 'Luis',
+    role: 'a programmer',
+    hobbies: ['sleeping', 'shopping']
+  },
+  {
+    name: 'Carlos',
+    role: 'a secretary',
+    hobbies: ['soccer', 'cheese']
+  }
+];
 
-// 2. Ejercicios Filter
-// Crea un segundo array con que devuelva los impares
+staff.map(person => `${person.name} is ${person.role} and they like ${person.hobbies[0]} and ${person.hobbies[1]}`);
+
+/* Result -->
+  [
+    'Pepe is The Boss and they like reading and watching movies',
+    'Ana is an intern and they like swimming and dancing',
+    'Luis is a programmer and they like sleeping and shopping',
+    'Carlos is a secretary and they like soccer and cheese'
+  ]
+*/
+
+// 2. Filter exercises
+// 2.1 Create a second array that returns the odd numbers
 
 const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-numbers2.filter(a => a%2 != 0)
+numbers2.filter(a => a % 2 != 0);
 
-// Dado el siguiente array, genera un segundo array que filtre los platos veganos y saque una sentencia como la del ejemplo
+// Result --> [1,3,5,7,9]
+
+// 2.2 Given the following array, generate a second array that filters the vegan dishess and outputs a sentence like the example:
 
 const foodList2 = [
   {
@@ -99,84 +96,85 @@ const foodList2 = [
 ];
 
 foodList2
-.filter(food => { if(food.isVeggie){ return food.name}})
-.map(food => `Que rico ${food.name} me voy a comer!`)
+  .filter(food => { if (food.isVeggie) { return food.name } })
+  .map(food => `How delicious ${food.name} I am going to eat!`);
 
+/* Result --> 
+  [
+    'How delicious Tempeh I am going to eat!',
+    'How delicious Tofu burguer I am going to eat!'
+  ]
+*/
 
-// Dado el siguiente array, devolver un array con los nombres de los elementos que valgan más de 300 euros
-
+// 2.3 Given the following array, return an array with the names of the elements that are worth more than 300 euros:
 
 const inventory = [
   {
     name: 'Mobile phone',
     price: 199
-  }, 
+  },
   {
     name: 'TV Samsung',
     price: 459
   },
   {
-    name: 'Viaje a cancún',
+    name: 'Trip to Cancun',
     price: 600
   },
   {
-    name: 'Mascarilla',
+    name: 'Mask',
     price: 1
   }
 ];
 
 inventory
-.filter(item => item.price > 300)
-.map(item => item.name)
+  .filter(item => item.price > 300)
+  .map(item => item.name);
 
-/*
+/* Result -->
   [
     'TV Samsung,',
-    'Viaje a Cancún'
+    'Trip to Cancun'
   ]
 */
 
+// 3. Reduce exercises
+// 3.1 Given the following array, obtain the multiplication of all the elements of the array:
 
-// 3. Ejercicios reduce
-// Dado el siguiente array, obten la multiplicación de todos los elementos del array
-
-const numeros = [39, 2, 4, 25, 62];
-
-numeros.reduce(
+const numbers3 = [39, 2, 4, 25, 62];
+console.log(
+  numbers3.reduce(
     (acc, curr) => {
-      
       return acc * curr
-    },
-    
-  );
+    }));
 
-// Salida--> 483600
+// Result --> 483600
 
-// Concatena todos los elementos del array con reduce para que devuelva una sola frase
-
+// 3.2 Concatenate all the elements of the array with reduce to return a single sentence:
 
 const sentenceElements = [
-  'Me',
-  'llamo',
-  /* Tu nombre aqui! */,
-  'y',
-  'quiero',
-  'sentir',
-  'la',
-  'fuerza',
-  'con',
-  'javascript'
+  'My',
+  'name',
+  'is',
+  'Fran',
+  'and',
+  'I',
+  'want',
+  'to',
+  'feel',
+  'the',
+  'force',
+  'with',
+  'JavaScript'
 ];
 
-sentenceElements.reduce((acc,curr)=> {
-    return acc + ' ' + curr
-})
+sentenceElements.reduce((acc, curr) => {
+  return acc + ' ' + curr
+});
 
-// Resultado--> 'Me llamo XX y quiero sentir la fuerza con javascript'
+// Result --> 'My name is XX and I want to feel the force with JavaScript'
 
-
-// Obtener el monto total de los elementos que pertenecen a catergory "code"
-
+// 3.3 Get the total amount of elements that belong to the "code" category:
 
 const books = [
   {
@@ -192,20 +190,23 @@ const books = [
     category: 'novel'
   },
   {
-    name: 'Juego de tronos',
+    name: 'Game of Thrones',
     author: 'George R. Martin',
     price: 32,
     category: 'Fantasy'
   },
   {
-    name: 'javascript the good parts',
+    name: 'Javascript: the good parts',
     author: 'Douglas Crockford',
     price: 40,
     category: 'code'
   }
 ];
 
-books.filter(book => { if(book.category === 'code') {return book.price}})
-.reduce((acc, value) => acc + value.price, 0)
+books.filter(book => {
+  if (book.category === 'code') {
+    return book.price
+  }
+}).reduce((acc, value) => acc + value.price, 0);
 
-// Resultado --> 60
+// Result --> 60
